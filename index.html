@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stenin Tom Varghese | Mechanical Engineer</title>
+
+<!-- Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+:root {
+  --primary: #0077b6;
+  --secondary: #00b4d8;
+  --bg: #ffffff;
+  --text: #222;
+}
+
+body.dark {
+  --bg: #121212;
+  --text: #fff;
+}
+
+body {
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition:0.4s;
+}
+
+/* Background Video */
+video {
+  position: fixed;
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  z-index:-1;
+  opacity:0.15;
+}
+
+/* Navbar */
+nav {
+  display:flex;
+  justify-content:space-between;
+  padding:15px 30px;
+  background: rgba(0,0,0,0.6);
+  color:#fff;
+}
+
+.toggle {
+  cursor:pointer;
+}
+
+/* Hero */
+.hero {
+  text-align:center;
+  padding:100px 20px;
+}
+
+.hero h1 {
+  font-size:40px;
+}
+
+.btn {
+  padding:10px 20px;
+  background:var(--primary);
+  color:white;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+/* Cards */
+.container {
+  padding:40px;
+}
+
+.card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  margin:15px;
+  border-radius:15px;
+  transition:0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* Skills */
+.skill {
+  margin:10px 0;
+}
+
+.bar {
+  height:10px;
+  background:#ccc;
+  border-radius:10px;
+}
+
+.progress {
+  height:10px;
+  background:var(--secondary);
+  width:0;
+  border-radius:10px;
+}
+
+/* Timeline */
+.timeline {
+  border-left:3px solid var(--primary);
+  padding-left:20px;
+}
+
+.timeline-item {
+  margin-bottom:20px;
+}
+
+/* Floating WhatsApp */
+.whatsapp {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:15px;
+  border-radius:50%;
+  font-size:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Background Video -->
+<video autoplay muted loop>
+  <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+</video>
+
+<nav>
+  <h2>Stenin Tom</h2>
+  <div class="toggle" onclick="toggleMode()">🌙</div>
+</nav>
+
+<section class="hero">
+  <h1>Mechanical Engineer (MEP)</h1>
+  <p>QA/QC | HVAC | Plumbing | Fire Fighting</p>
+
+  <button class="btn" onclick="downloadCV()">Download CV</button>
+
+  <div style="margin-top:20px;">
+    <a href="https://wa.me/971529068007" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="mailto:stenintom@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.linkedin.com/in/stenin-tom1995" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+</section>
+
+<div class="container">
+
+<div class="card">
+<h2>About Me</h2>
+<p>Results-oriented QA/QC Mechanical Engineer with 2+ years experience in MEP construction across UAE projects.</p>
+</div>
+
+<div class="card">
+<h2>Skills</h2>
+
+<div class="skill">HVAC
+<div class="bar"><div class="progress" style="width:90%"></div></div></div>
+
+<div class="skill">Plumbing
+<div class="bar"><div class="progress" style="width:85%"></div></div></div>
+
+<div class="skill">Fire Fighting
+<div class="bar"><div class="progress" style="width:80%"></div></div></div>
+
+</div>
+
+<div class="card">
+<h2>Experience Timeline</h2>
+
+<div class="timeline">
+<div class="timeline-item">
+<h4>QA/QC Engineer – I Zone LLC</h4>
+<p>2023 - Present | Hudayriyat Project</p>
+</div>
+
+<div class="timeline-item">
+<h4>Mechanical Engineer – HB Project</h4>
+<p>2024 | Yas Island</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/971529068007" class="whatsapp" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+
+function toggleMode(){
+  document.body.classList.toggle("dark");
+}
+
+function downloadCV(){
+  window.open("YOUR_CV_LINK.pdf");
+}
+
+// Animate skills
+window.onload = () => {
+  document.querySelectorAll('.progress').forEach(bar=>{
+    bar.style.width = bar.style.width;
+  });
+}
+
+</script>
+
+</body>
+</html>
