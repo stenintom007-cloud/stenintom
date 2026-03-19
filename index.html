@@ -4,222 +4,251 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stenin Tom Varghese | Mechanical Engineer</title>
-
-<!-- Icons -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root {
-  --primary: #0077b6;
-  --secondary: #00b4d8;
-  --bg: #ffffff;
-  --text: #222;
+    --primary-color: #0077b6; /* MEP blue */
+    --secondary-color: #00b4d8;
+    --accent-color: #48cae4;
+    --bg-color: #f4f4f4;
+    --text-color: #222;
 }
-
-body.dark {
-  --bg: #121212;
-  --text: #fff;
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #eee;
 }
-
 body {
-  margin:0;
-  font-family: 'Segoe UI', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  transition:0.4s;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
-
-/* Background Video */
-video {
-  position: fixed;
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  z-index:-1;
-  opacity:0.15;
+header {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    overflow: hidden;
 }
-
-/* Navbar */
+header video {
+    position: absolute;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.5);
+}
+header .intro {
+    z-index: 2;
+}
+header .intro h1 {
+    font-size: 3rem;
+    margin: 0.5rem 0;
+}
+header .intro h3 {
+    font-weight: 400;
+    margin: 0.5rem 0;
+}
 nav {
-  display:flex;
-  justify-content:space-between;
-  padding:15px 30px;
-  background: rgba(0,0,0,0.6);
-  color:#fff;
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    z-index: 10;
 }
-
-.toggle {
-  cursor:pointer;
+nav button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
 }
-
-/* Hero */
-.hero {
-  text-align:center;
-  padding:100px 20px;
+section {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: auto;
 }
-
-.hero h1 {
-  font-size:40px;
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
-
-.btn {
-  padding:10px 20px;
-  background:var(--primary);
-  color:white;
-  border:none;
-  border-radius:5px;
-  cursor:pointer;
-}
-
-/* Cards */
-.container {
-  padding:40px;
-}
-
 .card {
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  padding:20px;
-  margin:15px;
-  border-radius:15px;
-  transition:0.3s;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    flex: 1 1 250px;
+    padding: 20px;
+    transition: transform 0.3s ease;
 }
-
-.card:hover {
-  transform: translateY(-10px);
+.card:hover { transform: translateY(-10px); }
+.card i { font-size: 2rem; color: var(--primary-color);}
+.skill-bar {
+    background: #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 15px;
 }
-
-/* Skills */
-.skill {
-  margin:10px 0;
+.skill-bar div {
+    height: 18px;
+    width: 0;
+    background: var(--primary-color);
+    border-radius: 12px;
 }
-
-.bar {
-  height:10px;
-  background:#ccc;
-  border-radius:10px;
-}
-
-.progress {
-  height:10px;
-  background:var(--secondary);
-  width:0;
-  border-radius:10px;
-}
-
-/* Timeline */
 .timeline {
-  border-left:3px solid var(--primary);
-  padding-left:20px;
+    position: relative;
+    margin: 50px 0;
 }
-
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 4px;
+    background: var(--primary-color);
+    top:0; bottom:0;
+    transform: translateX(-50%);
+}
 .timeline-item {
-  margin-bottom:20px;
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+    box-sizing: border-box;
 }
-
-/* Floating WhatsApp */
-.whatsapp {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  padding:15px;
-  border-radius:50%;
-  font-size:20px;
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
 }
-
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 20px; height: 20px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+}
+.timeline-item:nth-child(odd)::before {
+    right: -10px;
+}
+.timeline-item:nth-child(even)::before {
+    left: -10px;
+}
+.contact-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.contact-buttons a {
+    background: var(--secondary-color);
+    color: white;
+    font-size: 1.5rem;
+    padding: 12px;
+    border-radius: 50%;
+    text-align: center;
+}
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.download-btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+@media(max-width:768px) {
+    .timeline-item { width: 100%; left:0 !important; text-align:left !important; }
+}
 </style>
 </head>
+<body data-theme="light">
 
-<body>
+<button class="dark-mode-toggle">Toggle Dark/Light</button>
 
-<!-- Background Video -->
-<video autoplay muted loop>
-  <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
-</video>
+<header>
+    <video autoplay muted loop>
+        <source src="mep-site.mp4" type="video/mp4">
+    </video>
+    <div class="intro">
+        <h1>Stenin Tom Varghese</h1>
+        <h3>Mechanical Engineer (MEP)</h3>
+        <a href="Stenin_Tom_Varghese.pdf" class="download-btn" download>Download CV</a>
+    </div>
+</header>
 
-<nav>
-  <h2>Stenin Tom</h2>
-  <div class="toggle" onclick="toggleMode()">🌙</div>
-</nav>
-
-<section class="hero">
-  <h1>Mechanical Engineer (MEP)</h1>
-  <p>QA/QC | HVAC | Plumbing | Fire Fighting</p>
-
-  <button class="btn" onclick="downloadCV()">Download CV</button>
-
-  <div style="margin-top:20px;">
-    <a href="https://wa.me/971529068007" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="mailto:stenintom@gmail.com"><i class="fas fa-envelope"></i></a>
-    <a href="https://www.linkedin.com/in/stenin-tom1995" target="_blank"><i class="fab fa-linkedin"></i></a>
-  </div>
+<section id="about">
+    <h2>About Me</h2>
+    <p>Results-oriented QA/QC and Site Mechanical Engineer with over two years of experience in MEP construction, delivering high-quality mechanical systems across residential and commercial projects in the UAE...</p>
 </section>
 
-<div class="container">
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skill-bar"><div data-width="90%"></div> HVAC</div>
+    <div class="skill-bar"><div data-width="85%"></div> Plumbing & Drainage</div>
+    <div class="skill-bar"><div data-width="80%"></div> Fire Fighting Systems</div>
+</section>
 
-<div class="card">
-<h2>About Me</h2>
-<p>Results-oriented QA/QC Mechanical Engineer with 2+ years experience in MEP construction across UAE projects.</p>
+<section id="experience">
+    <h2>Experience Timeline</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <h3>Sports Hotel Project – Abu Dhabi</h3>
+            <p>QA/QC Mechanical / Site Engineer (Dec 2023 – Present)</p>
+        </div>
+        <div class="timeline-item">
+            <h3>HB Office Project – Yas Island</h3>
+            <p>Mechanical Site Engineer & QC Engineer (Feb 2024 – Oct 2024)</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Expertise Cards</h2>
+    <div class="cards">
+        <div class="card"><i class="fa-solid fa-fan"></i><h3>HVAC</h3><p>Installation, testing & commissioning</p></div>
+        <div class="card"><i class="fa-solid fa-water"></i><h3>Plumbing</h3><p>Drainage & water supply systems</p></div>
+        <div class="card"><i class="fa-solid fa-fire-extinguisher"></i><h3>Fire Fighting</h3><p>Hydrants, sprinklers & pumps</p></div>
+    </div>
+</section>
+
+<div class="contact-buttons">
+    <a href="https://wa.me/971529068007" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="mailto:stenintom@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+    <a href="https://www.linkedin.com/in/stenin-tom1995/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
 </div>
-
-<div class="card">
-<h2>Skills</h2>
-
-<div class="skill">HVAC
-<div class="bar"><div class="progress" style="width:90%"></div></div></div>
-
-<div class="skill">Plumbing
-<div class="bar"><div class="progress" style="width:85%"></div></div></div>
-
-<div class="skill">Fire Fighting
-<div class="bar"><div class="progress" style="width:80%"></div></div></div>
-
-</div>
-
-<div class="card">
-<h2>Experience Timeline</h2>
-
-<div class="timeline">
-<div class="timeline-item">
-<h4>QA/QC Engineer – I Zone LLC</h4>
-<p>2023 - Present | Hudayriyat Project</p>
-</div>
-
-<div class="timeline-item">
-<h4>Mechanical Engineer – HB Project</h4>
-<p>2024 | Yas Island</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
-<!-- Floating WhatsApp -->
-<a href="https://wa.me/971529068007" class="whatsapp" target="_blank">
-<i class="fab fa-whatsapp"></i>
-</a>
 
 <script>
+// Dark/Light Toggle
+const toggle = document.querySelector('.dark-mode-toggle');
+toggle.addEventListener('click', () => {
+    document.body.dataset.theme = document.body.dataset.theme === 'light' ? 'dark' : 'light';
+});
 
-function toggleMode(){
-  document.body.classList.toggle("dark");
-}
-
-function downloadCV(){
-  window.open("YOUR_CV_LINK.pdf");
-}
-
-// Animate skills
-window.onload = () => {
-  document.querySelectorAll('.progress').forEach(bar=>{
-    bar.style.width = bar.style.width;
-  });
-}
-
+// Animate skill bars
+window.addEventListener('load', () => {
+    document.querySelectorAll('.skill-bar div').forEach(bar => {
+        bar.style.width = bar.getAttribute('data-width');
+    });
+});
 </script>
-
 </body>
 </html>
